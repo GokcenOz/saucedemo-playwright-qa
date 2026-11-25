@@ -17,12 +17,12 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - name: Run smoke tests on push, full suite on PR
+      - name: Run smoke tests on push, regression suite on PR
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
             npm run test:smoke
           else
-            npm test
+            npm run test:regression
           fi
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

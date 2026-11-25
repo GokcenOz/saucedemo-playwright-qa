@@ -2,7 +2,7 @@ import { test, expect } from '../fixtures';
 import checkout from '../test-data/checkout.json';
 
 test.describe('Checkout', () => {
-  test('TC-CHK-01: Complete purchase end to end', { tag: '@smoke' }, async ({
+  test('TC-CHK-01: Complete purchase end to end', { tag: ['@smoke', '@regression'] }, async ({
     loggedInInventoryPage: inventory,
     cartPage,
     checkoutPage,

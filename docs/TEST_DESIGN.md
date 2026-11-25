@@ -64,7 +64,7 @@ Prioritization rule: **Risk = Likelihood x Impact.** P1 cases are intended for t
 
 - **UI end-to-end tests** against the deployed application. They verify real user journeys, which is the main risk for an e-commerce site.
 - Tests are **independent**: each test sets up its own state and does not rely on other tests. Login tests start from the login page; checkout uses a fixture that logs in through the UI.
-- **Smoke vs. regression:** implemented P1 cases are tagged `@smoke`; implemented P2/P3 cases use `@regression`. Remaining regression cases are planned. CI runs smoke tests on pushes and the full suite on pull requests.
+- **Smoke vs. regression:** every implemented test is tagged `@regression`; the critical P1 subset also carries `@smoke`. CI runs smoke tests on pushes and the full regression suite on pull requests.
 
 ### 3.2 Test design techniques
 
@@ -84,7 +84,7 @@ Prioritization rule: **Risk = Likelihood x Impact.** P1 cases are intended for t
 - **Waits:** rely on Playwright auto-waiting and web-first assertions (`expect(locator).toBeVisible()`). No fixed `sleep` calls.
 - **Test data:** externalized in `test-data/*.json`.
 - **Reporting and debugging:** HTML report, traces and screenshots on failure (`trace: 'on-first-retry'`).
-- **CI:** GitHub Actions runs the smoke suite on each push and the full suite on pull requests.
+- **CI:** GitHub Actions runs the smoke suite on each push and the `@regression` suite on pull requests.
 
 ### 3.4 What is automated vs. manual
 

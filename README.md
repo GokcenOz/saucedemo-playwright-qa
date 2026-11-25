@@ -16,6 +16,7 @@ npx playwright install chromium
 ```bash
 npm test               # full suite
 npm run test:smoke     # only @smoke tests
+npm run test:regression # all @regression tests
 npm run test:headed    # watch the browser
 npm run test:ui        # Playwright UI mode
 npm run report         # open the HTML report

@@ -6,7 +6,7 @@ test.describe('Authentication', () => {
     await loginPage.goto();
   });
 
-  test('TC-LOGIN-01: Successful login with valid credentials', { tag: '@smoke' }, async ({
+  test('TC-LOGIN-01: Successful login with valid credentials', { tag: ['@smoke', '@regression'] }, async ({
     page,
     loginPage,
     inventoryPage,
@@ -21,7 +21,7 @@ test.describe('Authentication', () => {
 
   // TC-LOGIN-02: one generated test per data row
   for (const data of users.invalidLoginCases) {
-    test(`TC-LOGIN-02: Login fails with invalid credentials (${data.name})`, { tag: '@smoke' }, async ({
+    test(`TC-LOGIN-02: Login fails with invalid credentials (${data.name})`, { tag: ['@smoke', '@regression'] }, async ({
       page,
       loginPage,
     }) => {
@@ -32,7 +32,7 @@ test.describe('Authentication', () => {
     });
   }
 
-  test('TC-LOGIN-03: Locked-out user cannot log in', { tag: '@smoke' }, async ({ loginPage }) => {
+  test('TC-LOGIN-03: Locked-out user cannot log in', { tag: ['@smoke', '@regression'] }, async ({ loginPage }) => {
     await loginPage.login(users.locked.username, users.locked.password);
 
     await expect(loginPage.errorMessage).toHaveText(
@@ -40,7 +40,7 @@ test.describe('Authentication', () => {
     );
   });
 
-  test('TC-LOGIN-04: Protected page cannot be accessed without login', { tag: '@smoke' }, async ({
+  test('TC-LOGIN-04: Protected page cannot be accessed without login', { tag: ['@smoke', '@regression'] }, async ({
     page,
     loginPage,
   }) => {
