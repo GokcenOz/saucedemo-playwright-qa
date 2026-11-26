@@ -1,5 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
+declare const process: { env: { CI?: string } };
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
@@ -9,7 +11,6 @@ export default defineConfig({
   reporter: [['list'], ['html', { open: 'never' }]],
   use: {
     baseURL: 'https://www.saucedemo.com',
-    // Sauce Demo uses "data-test" instead of the default "data-testid"
     testIdAttribute: 'data-test',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',

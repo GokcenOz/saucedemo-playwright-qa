@@ -146,8 +146,8 @@ The application exposes no public API, and the main risk lies in user-visible be
   - The product list shows 6 items.
   - The cart icon is visible and its badge is not displayed.
 
-#### TC-LOGIN-02: Login fails with invalid credentials  `[Video, data-driven]`
-- **Priority:** P1 | **Type:** Negative | **Implementation:** Video
+#### TC-LOGIN-02: Login fails with invalid credentials  `[data-driven]`
+- **Priority:** P1 | **Type:** Negative | **Implementation:** Implemented
 - **Preconditions:** User is on the login page.
 - **Test data (one run per row):**
 
@@ -307,10 +307,9 @@ The table below describes the **designed coverage**, not the currently automated
 
 | Case | Reason |
 |------|--------|
-| **TC-LOGIN-02** | Demonstrates negative authentication, data-driven test design and precise error-message assertions. |
 | **TC-CHK-01** | Demonstrates a full end-to-end P1 journey across the shop and checkout, including price calculation assertions. |
 
-These are the two cases selected for the live coding session, matching the assessment's 1–2 case requirement.
+TC-CHK-01 is the single case selected for the live coding session, matching the assessment's 1–2 case requirement.
 
 ### 7.3 Future improvements
 
